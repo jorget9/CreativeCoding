@@ -4,3 +4,4 @@ Cooked a text file that included several short stories by Edgar Allen Poe.
 Got the words from each book using pre-existing code. 
 Made an array with sad words. 
 If a book contained those words, the picture of edgar would get larger with each word. 
+Key pressed moved to next book
