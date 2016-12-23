@@ -36,26 +36,7 @@ request.get(shot_chart_url, function(err, res, body){
             "y": Math.ceil((y[i]+17)/9),
             "made": made[i],
             "attempts": attempts[i]});
-    }
-        var coll = d3.nest()
-        .key(function(d) {return [d.x, d.y]; })
-        .rollup(function(v){return{
-            made: d3.sum(v, function(d) {return d.made}),
-            attempts: d3.sum(v, function(d){return d.attempts}),
-            shootingPercentage:  d3.sum(v, function(d) {return d.made})/d3.sum(v, function(d){return d.attempts})
-        }})
-        .entries(tenderData);
-            coll.forEach(function(a){
-        a.key = JSON.parse("[" + a.key + "]");
-        z.push(a.values.shootingPercentage);
-    });
-
-    var meanShot = dl.mean(z);
-    var shotSTDV = dl.stdev(z);
-        coll.forEach(function(a){
-        var k = (a.values.shootingPercentage - meanShot)/shotSTDV;
-        finalData.push({"x": a.key[0], "y": a.key[1], "z": k, "made": a.values.made, "attempts": a.values.attempts})
-    });
+   
     var heatRange = ['#5458A2', '#6689BB', '#FADC97', '#F08460', '#B02B48'];
 d3.select(document.getElementById('chart'))
     .append("svg")
