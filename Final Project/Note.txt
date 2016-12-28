@@ -1,2 +1,0 @@
-Hello code referenced from nba shot charts with d3.js
-shot chart for nba players
